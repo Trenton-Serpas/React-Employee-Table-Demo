@@ -1,9 +1,7 @@
 ## Technologies used
 
-- MySql
+- Mongodb
 - Springboot
-- Jpa
-- Hibernate
 - React
 
 ### note
