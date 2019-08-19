@@ -1,4 +1,4 @@
-import React, { useState, Component, Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 import '../App.css';
 import auth from '../auth';
 import { Link, withRouter } from 'react-router-dom';
@@ -10,9 +10,9 @@ class List extends Component {
     }
 
     fetchEmployees = async () => {
-        const data = await fetch('http://localhost:3000/employees/list');
+        const data = await fetch('http://localhost:8080/employees/list');
         const json = await data.json();
-        return json.data;
+        return json;
     }
 
     constructor(props) {
@@ -41,13 +41,13 @@ class List extends Component {
                     </thead>
                     <tbody>
                         {this.state.items ? this.state.items.map(item => (
-                            <tr key={item.ID}>
+                            <tr key={item.id}>
                                 <td>
-                                    <Link to={`/edit/${item.ID}`}>
-                                        {item.FIRST_NAME + ' ' + item.LAST_NAME}
+                                    <Link to={`/edit/${item.id}`}>
+                                        {item.firstName + ' ' + item.lastName}
                                     </Link>
                                 </td>
-                                <td>{item.EMAIL}</td>
+                                <td>{item.email}</td>
                             </tr>
                         )) : null }
                     </tbody>

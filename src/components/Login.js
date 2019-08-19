@@ -17,8 +17,8 @@ class Login extends Component {
     TryLogin(e) {
         e.preventDefault();
         this.fetchLogins().then(rs => {
-            const match = rs.find(x => x.EMAIL === this.state.email)
-            if(match && match.PASSWORD === this.state.password) {
+            const match = rs.find(x => x.email === this.state.email)
+            if(match && match.password === this.state.password) {
                 auth.authenticated = true;
                 this.props.history.push('/list');
             } else {
@@ -28,9 +28,9 @@ class Login extends Component {
     }
 
     fetchLogins = async () => {
-        const data = await fetch('http://localhost:3000/employees/login');
+        const data = await fetch('http://localhost:8080/employees/login');
         const json = await data.json();
-        return json.data;
+        return json;
     }
 
     handleChange(e) {

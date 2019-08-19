@@ -4,7 +4,6 @@ import Login from './components/Login';
 import List from './components/List';
 import Edit from './components/Edit';
 import './App.css';
-import auth from './auth';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 class App extends Component {
@@ -15,7 +14,6 @@ class App extends Component {
 
 
   render() {
-    console.log(this.state);
     return (
       <Router>
         <div className="App">

@@ -37,14 +37,6 @@ select::placeholder {
   color: #999;
 }
 
-option {
-  padding: 5px 5px;
-  border-radius: 5px;
-  outline: none;
-  border: 1px solid #cfcfcf;
-  margin: 8px;
-}
-
 button {
   background-color: #282c34;
   color: white;

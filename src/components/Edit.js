@@ -27,16 +27,16 @@ class Edit extends Component {
     componentDidMount() {
         if(this.props.match.params.id) {
             this.fetchEmployee().then(rs => this.setState({
-                id: rs.ID,
-                firstName: rs.FIRST_NAME,
-                lastName: rs.LAST_NAME,
-                address: rs.ADDRESS,
-                city: rs.CITY,
-                state: rs.STATE,
-                zip: rs.ZIP,
-                cellPhone: rs.CELL_PHONE,
-                homePhone: rs.HOME_PHONE,
-                email: rs.EMAIL,
+                id: rs.id,
+                firstName: rs.firstName,
+                lastName: rs.lastName,
+                address: rs.address,
+                city: rs.city,
+                state: rs.state,
+                zip: rs.zip,
+                cellPhone: rs.cellPhone,
+                homePhone: rs.homePhone,
+                email: rs.email,
             }));
         }
     }
@@ -45,7 +45,7 @@ class Edit extends Component {
         e.preventDefault();
         // If we gave it an employee
         if(this.props.match.params.id) {
-            fetch('http://localhost:3000/employees/edit', {
+            fetch('http://localhost:8080/employees/edit', {
                 method: 'PUT',
                 headers: {
                     'Accept': 'application/json',
@@ -54,7 +54,7 @@ class Edit extends Component {
                 body: JSON.stringify(this.state)
             }).then(rs => this.props.history.push('/list'));
         } else {
-            fetch('http://localhost:3000/employees/add', {
+            fetch('http://localhost:8080/employees/add', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -66,9 +66,9 @@ class Edit extends Component {
     }
 
     fetchEmployee = async () => {
-        const data = await fetch('http://localhost:3000/employees/byID/' + this.props.match.params.id);
+        const data = await fetch('http://localhost:8080/employees/byID/' + this.props.match.params.id);
         const json = await data.json();
-        return json.data[0];
+        return json;
     }
 
     handleChange(e) {
